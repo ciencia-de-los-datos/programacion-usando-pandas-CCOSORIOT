@@ -56,19 +56,10 @@ def pregunta_06():
 
 
 def pregunta_07():
-    """
-    Calcule la suma de la _c2 por cada letra de la _c1 del archivo `tbl0.tsv`.
 
-    Rta/
-    _c1
-    A    37
-    B    36
-    C    27
-    D    23
-    E    67
-    Name: _c2, dtype: int64
-    """
-    return
+    Suma = tbl0.groupby('_c1').sum()
+    Suma = Suma['_c2']
+    return Suma
 
 
 def pregunta_08():
