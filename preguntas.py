@@ -41,20 +41,10 @@ def pregunta_04():
 
 
 def pregunta_05():
-    """
-    Calcule el valor máximo de _c2 por cada letra en la columna _c1 del archivo
-    `tbl0.tsv`.
 
-    Rta/
-    _c1
-    A    9
-    B    9
-    C    9
-    D    7
-    E    9
-    Name: _c2, dtype: int64
-    """
-    return
+    Maximo = tbl0.groupby('_c1').max()
+    Maximo = Maximo['_c2']
+    return Maximo
 
 
 def pregunta_06():
