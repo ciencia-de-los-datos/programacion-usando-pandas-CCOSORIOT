@@ -28,24 +28,16 @@ def pregunta_02():
 
 def pregunta_03():
 
-    Agrupar = tbl0.groupby('_c1')
-    Agrupar.groups.keys()
-    return Agrupar.size()
+    Recuento = tbl0.groupby('_c1').count()
+    Recuento = Recuento['_c0']
+    return Recuento
 
 
 def pregunta_04():
-    """
-    Calcule el promedio de _c2 por cada letra de la _c1 del archivo `tbl0.tsv`.
-
-    Rta/
-    A    4.625000
-    B    5.142857
-    C    5.400000
-    D    3.833333
-    E    4.785714
-    Name: _c2, dtype: float64
-    """
-    return
+    
+    Promedio = tbl0.groupby('_c1').mean()
+    Promedio = Promedio['_c2']
+    return Promedio
 
 
 def pregunta_05():
