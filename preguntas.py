@@ -15,19 +15,15 @@ tbl2 = pd.read_csv("tbl2.tsv", sep="\t")
 
 
 def pregunta_01():
- 
-    return len(tbl0)
+
+    Filas = len(tbl0)
+    return Filas
 
 
 def pregunta_02():
-    """
-    ¿Cuál es la cantidad de columnas en la tabla `tbl0.tsv`?
 
-    Rta/
-    4
-
-    """
-    return
+    Columnas = len(list(tbl0.axes[1]))
+    return Columnas
 
 
 def pregunta_03():
