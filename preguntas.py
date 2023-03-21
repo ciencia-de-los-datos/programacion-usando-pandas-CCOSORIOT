@@ -87,22 +87,13 @@ def pregunta_10():
 
 
 def pregunta_11():
-    """
-    Construya una tabla que contenga _c0 y una lista separada por ',' de los valores de
-    la columna _c4 del archivo `tbl1.tsv`.
 
-    Rta/
-        _c0      _c4
-    0     0    b,f,g
-    1     1    a,c,f
-    2     2  a,c,e,f
-    3     3      a,b
-    ...
-    37   37  a,c,e,f
-    38   38      d,e
-    39   39    a,d,f
-    """
-    return
+    tbl1 = tbl1.sort_values(by = ['_c4'], ascending = True)
+    tbl1['Lista'] = tbl1.groupby(['_c0'])['_c4'].transform(lambda x: ','.join(x))
+    Eliminar_duplicados = tbl1[['_c0','Lista']].drop_duplicates()
+    Ordenar = Eliminar_duplicados .sort_values(by = ['_c0'], ascending= True).reset_index(drop= True).rename(columns= {'Lista':'_c4'})
+    Ordenar
+    return Ordenar
 
 
 def pregunta_12():
