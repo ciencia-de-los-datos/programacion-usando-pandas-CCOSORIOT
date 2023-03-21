@@ -48,15 +48,11 @@ def pregunta_05():
 
 
 def pregunta_06():
-    """
-    Retorne una lista con los valores unicos de la columna _c4 de del archivo `tbl1.csv`
-    en mayusculas y ordenados alfabéticamente.
 
-    Rta/
-    ['A', 'B', 'C', 'D', 'E', 'F', 'G']
-
-    """
-    return
+    Lista_Ordenada = tbl1['_c4'].tolist()
+    Lista_Ordenada = sorted(list(set(Lista_Ordenada)))
+    Lista_Ordenada = [z.upper() for z in Lista_Ordenada]
+    return Lista_Ordenada
 
 
 def pregunta_07():
