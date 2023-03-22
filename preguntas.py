@@ -166,10 +166,10 @@ def pregunta_10():
     """  
     tbl0['_c2'] = tbl0['_c2'].map(str).sort_values()
     tbl0 = tbl0.sort_values(by = ['_c1','_c2'], ascending = True)
-    tbl0['Lista'] = tbl0.groupby(['_c1'])['_c2'].transform(lambda x: ':'.join(x))
-    Tabla_Duplicados = tbl0[['_c1','Lista']].drop_duplicates()
-    Resutado = Tabla_Duplicados.rename(columns= {'Lista':'_c2'}).reset_index(drop= True)
-    return Resutado
+    tbl0['y'] = tbl0.groupby(['_c1'])['_c2'].transform(lambda x: ':'.join(x))
+    x = tbl0[['_c1','y']].drop_duplicates()
+    z = x.rename(columns= {'y':'_c2'}).reset_index(drop= True).set_index('_c1')
+    return z
 
 
 def pregunta_11():
