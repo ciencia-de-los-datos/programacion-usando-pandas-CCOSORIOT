@@ -186,11 +186,9 @@ def pregunta_11():
     38   38      d,e
     39   39    a,d,f
     """
-    tbl1 = tbl1.sort_values(by = ['_c4'], ascending = True)
-    tbl1['Lista'] = tbl1.groupby(['_c0'])['_c4'].transform(lambda x: ','.join(x))
-    Eliminar_duplicados = tbl1[['_c0','Lista']].drop_duplicates()
-    Ordenar = Eliminar_duplicados .sort_values(by = ['_c0'], ascending= True).reset_index(drop= True).rename(columns= {'Lista':'_c4'})
-    return Ordenar
+    Agrupar= tbl1.groupby('_c0')['_c4'].apply(lambda x: ','.join(map(str,sorted(list(x)))))
+    Resultado = pd.DataFrame(Agrupar)
+    return Resultado
 
 
 def pregunta_12():
