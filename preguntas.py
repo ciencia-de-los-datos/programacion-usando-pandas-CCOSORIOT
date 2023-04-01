@@ -187,7 +187,7 @@ def pregunta_11():
     39   39    a,d,f
     """
     Agrupar= tbl1.groupby('_c0')['_c4'].apply(lambda x: ','.join(map(str,sorted(list(x)))))
-    Resultado = pd.DataFrame(Agrupar)
+    Resultado = pd.DataFrame(Agrupar).reset_index()
     return Resultado
 
 
