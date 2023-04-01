@@ -226,4 +226,6 @@ def pregunta_13():
     E    275
     Name: _c5b, dtype: int64
     """
-    return
+    Union = pd.merge(tbl0, tbl2, on = '_c0')
+    Agrupar = Union.groupby('_c1')['_c5b'].sum()
+    return Agrupar
