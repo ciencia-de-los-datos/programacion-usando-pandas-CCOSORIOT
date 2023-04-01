@@ -164,9 +164,12 @@ def pregunta_10():
     3   D                  1:2:3:5:5:7
     4   E  1:1:2:3:3:4:5:5:5:6:7:8:8:9
     """  
-    grouped = tbl0.groupby('_c1')['_c2'].apply(lambda x: ':'.join(map(str,sorted(list(x)))))
-    result = pd.DataFrame(grouped)
-    return result
+    tbl0['_c2'] = tbl0['_c2'].map(str).sort_values()
+    tbl0 = tbl0.sort_values(by = ['_c1','_c2'], ascending = True)
+    tbl0['Lista'] = tbl0.groupby(['_c1'])['_c2'].transform(lambda x: ':'.join(x))
+    Eliminar_Duplicados = tbl0[['_c1','Lista']].drop_duplicates().reset_index(drop=True)
+    Resultados = Eliminar_Duplicados.rename(columns= {'Lista':'_c2'}).set_index('_c1')
+    return Resultados
 
 
 def pregunta_11():
