@@ -208,7 +208,7 @@ def pregunta_12():
     """
     Agrupar = tbl2.groupby('_c0').apply(lambda x: ','.join(sorted((x['_c5a'].astype(str)+":"+x['_c5b'].astype(str)))))
     Resultado = pd.DataFrame(Agrupar).reset_index()
-    Resultado.columns = ['-c0', '_c5']
+    Resultado.columns = ['_c0', '_c5']
     return Resultado
 
 
