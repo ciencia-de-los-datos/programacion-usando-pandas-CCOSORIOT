@@ -62,8 +62,7 @@ def pregunta_04():
     E    4.785714
     Name: _c2, dtype: float64
     """
-    Promedio = tbl0.groupby('_c1').mean()
-    Promedio = Promedio['_c2']
+    Promedio = tbl0.groupby('_c1')["_c2"].mean()
     return Promedio
 
 
